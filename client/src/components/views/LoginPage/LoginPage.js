@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { loginUser } from '../../../_actions/user_action';
 
 function LoginPage() {
+    const dispatch = useDispatch();
 
     const [Email, setEmail] = useState("")
     const [Password, setPassword] = useState("")
@@ -15,8 +18,14 @@ function LoginPage() {
 
     const onSubmitHandler = (event) => {
         event.preventDefault(); // 페이지 리프레시 방지
-        console.log('Email', Email)   
-        console.log('Password', Password)   
+
+        let body ={
+            email: Email,
+            password: Password
+        }
+
+        dispatch(loginUser(body))
+
     }
 
     return (
