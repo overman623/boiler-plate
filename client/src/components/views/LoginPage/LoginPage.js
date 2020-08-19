@@ -30,7 +30,7 @@ function LoginPage(props) {
         .then(response => {
             if (response.payload.loginSuccess) {
                 console.log(props.history)
-                props.histroy.push("/")
+                props.history.push("/")
             } else {
                 alert('Error')
             }
